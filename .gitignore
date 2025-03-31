@@ -1,1 +1,5 @@
 /target
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/rust-learning.iml
+/.idea/vcs.xml
