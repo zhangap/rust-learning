@@ -1,5 +1,15 @@
 use std::io;
 fn main() {
+    test_fn();
+    test_fn1();
+    test_fn2();
+    num_operations();
+    compound_types_fn();
+    visit_array_index();
+    test_fn_expression();
+}
+
+fn test_fn() {
     let mut x = 5;
     println!("The value of x is:{}", x);
     x = 6;
@@ -13,15 +23,9 @@ fn main() {
     let name = "武当".to_owned() + name;
 
     println!("The value of name is:{}", name);
-
-    test_fn();
-    test_fn2();
-    num_operations();
-    compound_types_fn();
-    visit_array_index();
 }
 
-fn test_fn() {
+fn test_fn1() {
     let x = 5;
     let x = x + 1;
     {
@@ -86,21 +90,44 @@ fn compound_types_fn() {
     ];
     let arr: [&str; 3] = ["张无忌", "张翠山", "金毛狮王"];
 
-    let arr2 = ["zap";5];
+    let arr2 = ["zap"; 5];
     println!("arr2:{arr2:?}");
     println!("数组的第二个元素是：{}", arr2[1]);
 }
 
-
 //访问数组下标
 fn visit_array_index() {
-
-    let arr = ["张三丰", "张无忌","张翠山","金毛狮王", "元贞","赵敏", "蛛儿"];
+    let arr = [
+        "张三丰",
+        "张无忌",
+        "张翠山",
+        "金毛狮王",
+        "元贞",
+        "赵敏",
+        "蛛儿",
+    ];
 
     println!("请选择你喜欢的人物ID");
     let mut index = String::new();
-    io::stdin().read_line(&mut index).expect("failed to read line");
+    io::stdin()
+        .read_line(&mut index)
+        .expect("failed to read line");
 
-    let index:usize = index.trim().parse().expect("请输入一个数字");
+    let index: usize = index.trim().parse().expect("请输入一个数字");
     println!("你最喜欢的人物是：{}", arr[index]);
+}
+
+fn test_fn_expression() {
+    //注意表达式的结尾没有分号，有分号表示是语句
+    let y = {
+        let x = 5;
+        x + 10
+    };
+
+    println!("The value of y is:{y}");
+}
+
+fn five() -> i32 {
+    5
+    // return 5;
 }
