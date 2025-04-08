@@ -15,7 +15,7 @@ fn main() {
     let height = 5;
     println!("矩形的面积是:{}",area(width, height));
 
-    //使用结构体来重构
+    //使用结构体来重构b
     let mut rect = Rectangle {
         width: 10,
         height: 5
@@ -44,6 +44,9 @@ fn main() {
         height: 2
     };
     println!("The rect3 of the rectangle is {:#?}", rect3.can_hold(&rect4));
+
+    let s = Rectangle::square(3);
+    println!("{:#?}", s)
 }
 
 
@@ -67,6 +70,10 @@ impl Rectangle {
     // 判断是否能够覆盖的住
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
+    }
+    // 创建一个正方形
+    fn square(size: u32) -> Rectangle {
+        Rectangle { width: size, height: size }
     }
 }
 
